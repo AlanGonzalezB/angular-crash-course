@@ -13,7 +13,7 @@ export class Task {
   tasks = DUMMY_TASKS
   @Input() name?: string;
   @Input() id?: string;
-  @Input({required: true}) newTask!: boolean;
+  @Input() newTask?: boolean;
 
   get selectedUserTaks() {
     return this.tasks.filter((task) => task.userId === this.id)
@@ -23,7 +23,12 @@ export class Task {
     this.tasks = this.tasks.filter((task) => task.id !== id)
   }
 
-  onNewTaskClick(value: boolean) {
-    this.newTask = value
+  onNewTaskClick() {
+    this.newTask = !this.newTask
+  }
+
+
+  onAddTask () {
+
   }
 }

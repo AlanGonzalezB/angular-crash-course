@@ -7,3 +7,7 @@ export interface TaskType {
   dueDate: string
 }
 
+
+export interface NewTaskType {
+  
+}

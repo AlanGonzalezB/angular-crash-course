@@ -2,13 +2,14 @@
     <header>
         <h2>{{ name }}'s Tasks </h2>
         <menu>
-            <button (click)="onNewTaskClick(true)">Add Task</button>
+            <button (click)="onNewTaskClick()">Add Task</button>
         </menu>
     </header>
 
     @if (newTask){
         <app-new-task
-        (cancel)="onNewTaskClick($event)"/>
+        (cancel)="onNewTaskClick()"
+        (create)=""/>
     }
 
     <ul>
