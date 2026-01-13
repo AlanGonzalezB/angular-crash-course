@@ -8,15 +8,16 @@
 
     @if (newTask){
         <app-new-task
+        [userId]="userId"
         (cancel)="onNewTaskClick()"
-        (create)=""/>
+        />
     }
 
     <ul>
-        @for (task of selectedUserTaks; track task.id){
+        @for (task of selectedUserTasks; track task.id){
         <li>
             <app-individual-task [task]="task" 
-            (complete)="onCompleteTask($event)"/>
+            />
         </li>
         }
     </ul>

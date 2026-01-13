@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { IndividualTask } from "./individual-task/individual-task";
+import { TasksService } from './tasks.service';
 import { DUMMY_TASKS } from '../../../../public/dummy-tasks'
 import { NewTask } from "./new-task/new-task";
+import { NewTaskType } from './task.type';
 
 @Component({
   selector: 'app-task',
@@ -10,17 +12,16 @@ import { NewTask } from "./new-task/new-task";
   styleUrl: './task.css',
 })
 export class Task {
-  tasks = DUMMY_TASKS
   @Input() name?: string;
-  @Input() id?: string;
+  @Input() userId!: string;
   @Input() newTask?: boolean;
 
-  get selectedUserTaks() {
-    return this.tasks.filter((task) => task.userId === this.id)
-  }
+ 
+  constructor(private tasksService: TasksService) {}
 
-  onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id)
+  get selectedUserTasks() {
+    return this.tasksService.getUserTasks(this.userId)
+
   }
 
   onNewTaskClick() {
@@ -28,7 +29,4 @@ export class Task {
   }
 
 
-  onAddTask () {
-
-  }
 }
