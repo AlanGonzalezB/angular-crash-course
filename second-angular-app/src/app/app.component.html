@@ -1,27 +1,30 @@
 <app-header/>
 <div>
     <form >
-            <tr class="input-group">
-                <td >
-                    <label>Initial investment</label>
-                    <input name="initial" type="number" [(ngModel)]="investment.initialInvestment">
-                </td>
-                <td >
-                    <label>Annual investment</label>
-                    <input name="annual"  type="number" [(ngModel)]="investment.annualInvestment">
-                </td>
-            </tr>
-            <tr class="input-group">
-                <td >
-                        <label>Expected Return</label>
-                        <input name="expected" type="number" [(ngModel)]="investment.expectedReturn">
-                </td>
-                <td>
-                        <label>Duration</label>
-                        <input name="duration" type="number" [(ngModel)]="investment.duration">
-                </td>
-            </tr>
+        <div class="input-group">
+            <p>
+                <label>Initial investment</label>
+                <input name="initial" type="number" [(ngModel)]="investment.initialInvestment">
+            </p>
+            <p>
+
+                <label>Annual investment</label>
+                <input name="annual"  type="number" [(ngModel)]="investment.annualInvestment">
+            </p>
+        </div>
+        <div class="input-group">
+            <p>
+                <label>Expected Return</label>
+                <input name="expected" type="number" [(ngModel)]="investment.expectedReturn">
+            </p>
+            <p>
+                <label>Duration</label>
+                <input name="duration" type="number" [(ngModel)]="investment.duration">
+            </p>
+        </div>
+        <p>
         <button (click)="onClickCalculate()">Calculate</button>
+        </p>
     </form>
 </div>
 <div>
