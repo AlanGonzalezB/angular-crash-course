@@ -1,0 +1,29 @@
+<app-header/>
+<div>
+    <form >
+            <tr class="input-group">
+                <td >
+                    <label>Initial investment</label>
+                    <input name="initial" type="number" [(ngModel)]="investment.initialInvestment">
+                </td>
+                <td >
+                    <label>Annual investment</label>
+                    <input name="annual"  type="number" [(ngModel)]="investment.annualInvestment">
+                </td>
+            </tr>
+            <tr class="input-group">
+                <td >
+                        <label>Expected Return</label>
+                        <input name="expected" type="number" [(ngModel)]="investment.expectedReturn">
+                </td>
+                <td>
+                        <label>Duration</label>
+                        <input name="duration" type="number" [(ngModel)]="investment.duration">
+                </td>
+            </tr>
+        <button (click)="onClickCalculate()">Calculate</button>
+    </form>
+</div>
+<div>
+    <app-results [isActive]="isDataSet" [data]="investmentToSend()"/>
+</div>

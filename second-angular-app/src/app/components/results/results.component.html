@@ -1,0 +1,26 @@
+<div>
+    @if (isActive()) {
+
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest (Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Captial</th>
+        </tr>
+        @for (data of results(); track data.year) {
+            <tr>
+                <td>{{ data.year }}</td>
+                <td>{{ data.valueEndOfYear | currency }}</td>
+                <td>{{ data.interest | currency }}</td>
+                <td>{{ data.totalInterest | currency }}</td>
+                <td>{{ data.totalAmmountInvested | currency }}</td>
+            </tr>
+        }
+    </table>
+    } @else {
+<div></div>
+    }
+    
+</div>
